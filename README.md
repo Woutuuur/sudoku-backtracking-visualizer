@@ -7,6 +7,7 @@ The `config.py` file can be changed to:
 3) change visualizer settings and more.
 
 Run using `python3 SudokuSolver.py`.
+
 Then input a board: `8...9.5.19.6531.2.........91..98.7..6.3...29...2......2...1...5.....8...3....6...` for example.
 
 Requires pygame. Click [here](https://www.pygame.org/wiki/GettingStarted) for installation instructions.
