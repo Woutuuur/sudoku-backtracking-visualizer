@@ -1,7 +1,7 @@
 # Sudoku Backtracking Visualizer
 Sudoku backtracking visualizer in Python using Pygame.
 
-![](example.gif)
+![](README_example.gif)
 
 The `config.py` file can be changed to:
 1) speed up or slow down program execution,
