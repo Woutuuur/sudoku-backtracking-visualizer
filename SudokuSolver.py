@@ -4,6 +4,14 @@ import time
 import sys
 import config
 
+w = config.width
+h = config.height
+
+white = (255,255,255)
+red = (255, 0, 0)
+black = (0,0,0)
+light_gray = (220,220,220)
+gray = (100,100,100)
 
 def is_safe(board, y, x, val):
     for i in range(9):
@@ -34,13 +42,13 @@ def solve(board):
             pygame.display.quit()
             pygame.quit()
             sys.exit(0)
+
     if (config.visualize == True):
-        draw_board(board, [-1,-1]);
+        draw_board(board, [-1,-1])
 
     spot = [0,0]
     if (not empty_spot_exists(board, spot)):
         return True
-    
     y = spot[0]
     x = spot[1]
 
@@ -49,14 +57,12 @@ def solve(board):
         draw_board(board, spot)
         pygame.time.delay(config.delay)
         pygame.display.update()
+
     for val in range(1, 10):
         if (is_safe(board, y, x, val)):
-    
             board[y][x] = val
-
             if (solve(board)):
                 return True
-
             board[y][x] = 0
 
     backtrack_count += 1
@@ -73,17 +79,9 @@ def readBoard(str):
 inp = input("Input a board: ")
 board = readBoard(inp)
 pygame.init()
-w = config.width
-h = config.height
-white = (255,255,255)
-red = (255, 0, 0)
-black = (0,0,0)
-light_gray = (220,220,220)
-gray = (100,100,100)
 win = pygame.display.set_mode((w,h + int(h / 9)))
 pygame.display.set_caption("Sudoku solver")
-font = pygame.font.SysFont('freesansbold.ttf', int(1.0/3.0 * min(w, h) / 9 * config.font_multiplier)); 
-#font = pygame.font.Font(pygame.font.get_default_font(), int(1.0/3.0 * min(w, h) / 9 * config.font_multiplier))
+font = pygame.font.SysFont('freesansbold.ttf', int(1.0/3.0 * min(w, h) / 9 * config.font_multiplier))
 
 backtrack_count = 0
 
